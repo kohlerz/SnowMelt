@@ -132,14 +132,16 @@ void setup() {
 //  pinMode(WAKE_INTERRUPT_PIN, INPUT_PULLUP);
 //  attachInterrupt(digitalPinToInterrupt(WAKE_INTERRUPT_PIN), onWake, FALLING);
 
-  Serial.println("Type 'calibrate' at any time to calibrate the scales");
-
 //  temp_sensor.requestTemperatures();
 //  Serial.println(temp_sensor.getTempFByIndex(0));
-  startRockBlock();
+//  startRockBlock();
 
-//  delay(60000);
-  
+  Serial.println("Starting in 1 minute");
+  Serial.println("Type 'calibrate' to calibrate the scales");
+  delay(60000);
+  handleCalibration();
+
+  startRockBlock();
   getData();
   sendViaRockBlock();
   setRTC();
